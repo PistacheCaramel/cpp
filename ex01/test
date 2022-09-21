@@ -1,0 +1,2 @@
+g++    -c -o Contact.o Contact.cpp
+<commande interne>: recipe for target 'Contact.o' failed
