@@ -14,5 +14,6 @@ public:
 	
 	Contact(void);
 	~Contact(void);
+	void	add_contact(void);
 };
 #endif
