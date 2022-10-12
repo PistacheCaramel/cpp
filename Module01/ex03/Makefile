@@ -1,18 +1,20 @@
 NAME	= a.out
 
-SRCS	= main.cpp
+SRCS	= main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
 
 
 OBJS	= ${SRCS:%.cpp=%.o}
 
 CC	= c++
 
-FLAGS	= -Wall -Wextra -Werror -std=c++98
-
-$(NAME)	:	$(OBJS)
-		$(CC) $(FLAGS) $(OBJS) -o $(NAME)
+FLAGS	= -Wall -Wextra -Werror -std=c++98 -g
 
 all	:	$(NAME)
+
+
+$(NAME)	:	$(OBJS)
+		$(CC) $(FLAGS) $(OBJS) -o ${NAME}
+
 
 clean	:
 		rm -rf $(OBJS)

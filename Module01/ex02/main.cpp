@@ -5,14 +5,13 @@ int	main()
 {
 	std::string	str;
 	std::string	*ptr;
-	str::string	&ref;
+	std::string	&ref = str;
 
 	str = "HI THIS IS BRAIN";
-	ref = str;
-	ptr = ref;
+	ptr = &str;
 	std::cout << &str << std::endl;
 	std::cout << ptr << std::endl;
-	std::cout << ref << std::endl;
+	std::cout << &ref << std::endl;
 	std::cout << str << std::endl;
 	std::cout << *ptr << std::endl;
 	std::cout << ref << std::endl;
