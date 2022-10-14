@@ -41,7 +41,26 @@ void	Harl::complain(std::string level)
 
 	while (i < 4 && name[i].compare(level))
 		i++;
-	if (i < 4)
-		(this->*functptr[i])();
+	switch (i)
+	{
+		case 0:
+			std::cout << "[ " << name[i] << " ]" << std::endl;
+			(this->*functptr[i])();
+			i++;
+		case 1:	
+			std::cout << "[ " << name[i] << " ]" << std::endl;
+			(this->*functptr[i])();
+			i++;
+		case 2:	
+			std::cout << "[ " << name[i] << " ]" << std::endl;
+			(this->*functptr[i])();
+			i++;
+		case 3:	
+			std::cout << "[ " << name[i] << " ]" << std::endl;
+			(this->*functptr[i])();
+			break;
+		default:
+			std::cout << "[ Probably complaining about insignificant problems ]"
+					<< std::endl;
+	}
 }
-
