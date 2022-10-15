@@ -3,6 +3,21 @@
 #include <iostream>
 #include <string>
 
+std::string	get_stream(void)
+{
+	std::string	str;
+
+	while (str.size() == 0)
+	{
+		if (std::getline(std::cin, str).eof())
+		{
+			std::cout << "EOF reached" << std::endl;
+			return (str);
+		}
+	}
+	return (str);
+}
+
 int	add_command(int i, PhoneBook *phonebook, std::string str, int nbcontacts)
 {
 	if (nbcontacts == 8)
@@ -41,8 +56,8 @@ int	main(int ac, char **av)
 			return (1);
 		if (str.compare("ADD") == 0)
 		{
-			if (i = add_command(i, &phonebook, str, nbcontacts)
-					== -1)
+			i = add_command(i, &phonebook, str, nbcontacts);
+			if (i == -1)
 				return (1);
 			if (nbcontacts < i)
 				nbcontacts = i;

@@ -11,7 +11,6 @@ Contact::Contact(void)
 
 Contact::~Contact(void)
 {
-	return;
 }
 
 std::string	Contact::get_first_name(void){return (this->first_name);}
