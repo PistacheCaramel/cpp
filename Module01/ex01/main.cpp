@@ -22,10 +22,9 @@ int	main()
 	int		i;
 	std::string	str;
 
-	std::cout << "Enter a zombie number for zombieHorde:";
-	zombie = zombieHorde(100, get_stream());
+	zombie = zombieHorde(10, "Plop");
 	i = 0;
-	while (i < 100)
+	while (i < 10)
 	{
 		zombie[i].announce();
 		i++;

@@ -9,16 +9,36 @@ class	Fixed
 		int			_integer;
 		static const int	_nbit = 8;
 	public:
-		Fixed(void);
-		Fixed(const  Fixed&);
-		Fixed(const int);
-		Fixed(const float);
-		Fixed	&operator=( Fixed const &src);
-		~Fixed(void);
-		int	getRawBits(void) const;
-		void	setRawBits(int const raw);
-		float	toFloat(void) const;
-		int	toInt(void) const;
+					Fixed(void);
+					Fixed(const  Fixed&);
+					Fixed(const int);
+					Fixed(const float);
+					~Fixed(void);
+
+		Fixed&			operator=( Fixed const &src);
+		Fixed			operator+(Fixed const &src) const;
+		Fixed			operator-(Fixed const &src) const;
+		Fixed			operator*(Fixed const &src) const;
+		Fixed			operator/(Fixed const &src) const;
+		Fixed&			operator++(void);
+		Fixed			operator++(int i);
+		Fixed&			operator--(void);
+		Fixed			operator--(int i);
+		bool			operator>(Fixed const &src) const;
+		bool			operator<(Fixed const &src) const;
+		bool			operator>=(Fixed const &src) const;
+		bool			operator<=(Fixed const &src) const;
+		bool			operator==(Fixed const &src) const;
+		bool			operator!=(Fixed const &src) const;
+
+		int			getRawBits(void) const;
+		void			setRawBits(int const raw);
+		float			toFloat(void) const;
+		int			toInt(void) const;
+		static Fixed&		min(Fixed & a, Fixed & b);
+		static const Fixed&	min(Fixed const & a, Fixed const & b);
+		static Fixed&		max(Fixed & a, Fixed & b);
+		static const Fixed&	max(Fixed const & a, Fixed const & b);
 		
 };
 

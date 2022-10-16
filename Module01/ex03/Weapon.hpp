@@ -8,11 +8,11 @@ class Weapon {
 	private:
 		std::string	type;
 	public:
-				Weapon(std::string type);
-				Weapon(void);
-				~Weapon(void);
+					Weapon(std::string type);
+					Weapon(void);
+					~Weapon(void);
 		std::string const &	getType(void) const;
-		void		setType(std::string type);
+		void			setType(std::string type);
 
 };
 #endif

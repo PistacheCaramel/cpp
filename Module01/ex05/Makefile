@@ -1,4 +1,4 @@
-NAME	= a.out
+NAME	= Harl
 
 SRCS	= main.cpp Harl.cpp
 

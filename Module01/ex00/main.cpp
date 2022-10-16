@@ -21,11 +21,9 @@ int	main()
 	Zombie		*zombie;
 	std::string	str;
 
-	std::cout << "Enter a zombie name for newZombie:";
-	zombie = newZombie(get_stream());
+	zombie = newZombie("Plop");
 	zombie->announce();
 	delete zombie;
-	std::cout << "Enter a zombie name for randomChump:";
-	randomChump(get_stream());
+	randomChump("DayWalker");
 	return (0);
 }

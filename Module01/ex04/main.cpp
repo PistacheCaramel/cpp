@@ -63,6 +63,8 @@ int	main(int argc, char **argv)
 			file += l;
 		fs.close();
 		str_modifier(argv[1], file, argv[2], argv[3]);
-	}	
+	}
+	else
+		std::cout << "Problem while opening file" << std::endl;	
 	return (0);
 }
