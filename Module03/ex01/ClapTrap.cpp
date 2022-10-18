@@ -6,7 +6,7 @@
 /*   By: ybendavi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 02:02:41 by ybendavi          #+#    #+#             */
-/*   Updated: 2022/10/18 04:19:34 by ybendavi         ###   ########.fr       */
+/*   Updated: 2022/10/18 05:22:45 by ybendavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,27 @@
 	ClapTrap::ClapTrap(void): _name("John Doe"), _hit_points(10), _energy_points(10), _attack_damage(0)
 {
 
+	std::cout << "ClapTrap "
+			<< getName()
+			<< " has been created."
+			<< std::endl;
 }
 
 	ClapTrap::ClapTrap(const  ClapTrap& copy)
 {
 	*this = copy;
+	std::cout << "ClapTrap "
+			<< getName()
+			<< " has been created."
+			<< std::endl;
 }
 
 	ClapTrap::ClapTrap(std::string name): _name(name), _hit_points(10), _energy_points(10), _attack_damage(0)
 {
-
+	std::cout << "ClapTrap "
+			<< getName()
+			<< " has been created."
+			<< std::endl;
 }
 
 	ClapTrap::~ClapTrap(void)

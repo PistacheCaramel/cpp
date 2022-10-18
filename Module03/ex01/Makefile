@@ -6,13 +6,13 @@
 #    By: ybendavi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 02:02:53 by ybendavi          #+#    #+#              #
-#    Updated: 2022/10/18 02:02:55 by ybendavi         ###   ########.fr        #
+#    Updated: 2022/10/18 04:24:07 by ybendavi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= action
 
-SRCS	= main.cpp ClapTrap.cpp
+SRCS	= main.cpp ClapTrap.cpp ScavTrap.cpp
 
 
 OBJS	= ${SRCS:%.cpp=%.o}
