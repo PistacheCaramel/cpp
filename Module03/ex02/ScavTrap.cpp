@@ -6,7 +6,7 @@
 /*   By: ybendavi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 04:57:03 by ybendavi          #+#    #+#             */
-/*   Updated: 2022/10/19 04:51:51 by ybendavi         ###   ########.fr       */
+/*   Updated: 2022/10/19 02:16:42 by ybendavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,7 @@ ScavTrap::ScavTrap(std::string name): ClapTrap(name)
 
 ScavTrap::~ScavTrap(void)
 {
-	std::cout << "ScavTrap "
-			<< getName()
+	std::cout << getName()
 			<< " has been destroyed."
 			<< std::endl;
 }
@@ -88,9 +87,9 @@ void	ScavTrap::guardGate(void)
 	if (getHitPoints() > 0)
 	{
 		std::cout << "ScavTrap "
-				<< getName()
-				<< " is entering in Gate Keeper Mode."
-				<< std::endl;
+			<< getName()
+			<< " is entering in Gate Keeper Mode."
+			<< std::endl;
 	}
 	else
 	{

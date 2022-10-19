@@ -6,7 +6,7 @@
 /*   By: ybendavi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 02:02:41 by ybendavi          #+#    #+#             */
-/*   Updated: 2022/10/18 05:22:45 by ybendavi         ###   ########.fr       */
+/*   Updated: 2022/10/19 05:26:16 by ybendavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,9 @@
 
 	ClapTrap::ClapTrap(void): _name("John Doe"), _hit_points(10), _energy_points(10), _attack_damage(0)
 {
-
 	std::cout << "ClapTrap "
 			<< getName()
-			<< " has been created."
+			<< " created."
 			<< std::endl;
 }
 
@@ -27,7 +26,7 @@
 	*this = copy;
 	std::cout << "ClapTrap "
 			<< getName()
-			<< " has been created."
+			<< " created."
 			<< std::endl;
 }
 
@@ -35,13 +34,14 @@
 {
 	std::cout << "ClapTrap "
 			<< getName()
-			<< " has been created."
+			<< " created."
 			<< std::endl;
 }
 
 	ClapTrap::~ClapTrap(void)
 {
-	std::cout << getName()
+	std::cout << "ClapTrap "
+			<< getName()
 			<< " destroyed."
 			<< std::endl;
 }
@@ -88,25 +88,35 @@ int	ClapTrap::getAttackDamage(void) const
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
-	std::cout << "ClapTrap "
-			<< getName()
-			<< " lost "
-			<< amount
-			<< " hp!"
-			<< std::endl;
-	setHitPoints(getHitPoints() - amount);
-	std::cout << "ClapTrap "
-			<< getName()
-			<< " has "
-			<< getHitPoints()
-			<< "."
-			<< std::endl;
 	if (getHitPoints() <= 0)
 	{
 		std::cout << "ClapTrap "
+			<< getName()
+			<< " is dead."
+			<< std::endl;
+	}
+	else
+	{
+		std::cout << "ClapTrap "
 				<< getName()
-				<< " died."
+				<< " lost "
+				<< amount
+				<< " hp!"
 				<< std::endl;
+		setHitPoints(getHitPoints() - amount);
+		std::cout << "ClapTrap "
+				<< getName()
+				<< " has "
+				<< getHitPoints()
+				<< " hp."
+				<< std::endl;
+		if (getHitPoints() <= 0)
+		{
+			std::cout << "ClapTrap "
+					<< getName()
+					<< " died."
+					<< std::endl;
+		}
 	}
 }
 
@@ -115,7 +125,9 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	if (getEnergyPoints() > 0 && getHitPoints() > 0)
 	{
 		setEnergyPoints(getEnergyPoints() - 1);
-		std::cout << "ClapTrap has "
+		std::cout << "ClapTrap "
+				<< getName()
+				<< " has "
 				<< getHitPoints()
 				<< " hp."
 				<< std::endl
@@ -137,17 +149,17 @@ void	ClapTrap::beRepaired(unsigned int amount)
 				<< " hp."
 				<< std::endl;
 	}
-	else if (getEnergyPoints() <= 0)
-	{
-		std::cout << "You haven't enough energy points to do this."
-				<< std:: endl;
-	}
-	else
+	else if (getHitPoints() <= 0)
 	{
 		std::cout << "ClapTrap "
 				<< getName()
 				<< " is dead."
 				<< std::endl;
+	}
+	else if (getEnergyPoints() <= 0)
+	{
+		std::cout << "You haven't enough energy points to do this."
+				<< std:: endl;
 	}
 }
 
@@ -165,17 +177,17 @@ void	ClapTrap::attack(const std::string& target)
 				<< "!"
 				<< std::endl;
 	}
-	else if (getEnergyPoints() <= 0)
-	{
-		std::cout << "You haven't enough energy points to do this."
-				<< std:: endl;
-	}
-	else
+	else if (getHitPoints() <= 0)
 	{
 		std::cout << "ClapTrap "
 				<< getName()
 				<< " is dead."
 				<< std::endl;
+	}
+	else if (getEnergyPoints() <= 0)
+	{
+		std::cout << "You haven't enough energy points to do this."
+				<< std:: endl;
 	}
 }
 

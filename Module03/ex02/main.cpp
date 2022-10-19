@@ -1,6 +1,21 @@
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 #include <iostream>
+#include <string>
+
+void	test_flagtrap_features( FragTrap & flag)
+{
+	flag.highFivesGuys();
+	std::cout << std::endl;
+	while (flag.getHitPoints() > 0)
+	{
+		flag.takeDamage(10);
+		std::cout << std::endl;
+	}
+	flag.highFivesGuys();
+	std::cout << std::endl;
+}
 
 void	test_scavtrap_features(ScavTrap & scav)
 {
@@ -25,7 +40,7 @@ void	test_claptrap_features(ClapTrap & clap)
 	std::cout << std::endl;
 	while (clap.getEnergyPoints() > 0)
 	{
-		clap.beRepaired(10);
+		clap.attack("Who knows");
 		std::cout << std::endl;
 	}
 	clap.beRepaired(10);
@@ -40,6 +55,27 @@ void	test_claptrap_features(ClapTrap & clap)
 	std::cout << std::endl;
 	clap.takeDamage(10);
 	std::cout << std::endl;
+}
+
+void	test_flagtrap(void)
+{
+	FragTrap	a;
+	FragTrap	b("Banner");
+	FragTrap	c("Bruce");
+	FragTrap	d(c);
+	FragTrap	e("");
+
+	
+	test_claptrap_features(a);
+	test_claptrap_features(b);
+	test_claptrap_features(c);
+	test_claptrap_features(d);
+	test_claptrap_features(e);
+	test_flagtrap_features(a);
+	test_flagtrap_features(b);
+	test_flagtrap_features(c);
+	test_flagtrap_features(d);
+	test_flagtrap_features(e);
 }
 
 void	test_scavtrap(void)
@@ -85,5 +121,7 @@ int main()
 	std::cout << std::endl << std::endl << std::endl;
 	std::cout << "TEST SCAVTRAP" << std::endl;
 	test_scavtrap();
+	std::cout << std::endl << std::endl << std::endl;
+	std::cout << "TEST FLAGTRAP" << std::endl;
+	test_flagtrap();
 }
-

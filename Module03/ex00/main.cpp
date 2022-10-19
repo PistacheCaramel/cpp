@@ -1,30 +1,50 @@
 #include <iostream>
 #include "ClapTrap.hpp"
 
-int	main()
+void	test_claptrap_features(ClapTrap & clap)
+{
+	clap.attack("A Flower");
+	std::cout << std::endl;
+	clap.takeDamage(5);
+	std::cout << std::endl;
+	clap.beRepaired(10);
+	std::cout << std::endl;
+	while (clap.getEnergyPoints() > 0)
+	{
+		clap.beRepaired(10);
+		std::cout << std::endl;
+	}
+	clap.beRepaired(10);
+	std::cout << std::endl;
+	while (clap.getHitPoints() > 0)
+	{
+		clap.takeDamage(10);
+		std::cout << std::endl;
+	}
+	clap.attack("His beloved soul");
+	clap.beRepaired(10);
+	std::cout << std::endl;
+	clap.takeDamage(10);
+	std::cout << std::endl;
+}
+
+void	test_claptrap(void)
 {
 	ClapTrap	a;
-	ClapTrap	b("Pika");
-	ClapTrap	c("Johnson");
+	ClapTrap	b("Flowi");
+	ClapTrap	c("Banana eater");
 	ClapTrap	d(c);
-	int		i;
+	ClapTrap	e("");
 
-	i = 0;
-	a.attack("A flower");
-	std::cout << "A Flower attack "
-			<< a
-			<< " causing 10!"
-			<< std::endl;
-	a.takeDamage(10);
-	a.beRepaired(10);
-	while (i < 10)
-	{
-		b.attack(c.getName());
-		c.takeDamage(b.getAttackDamage());
-		i++;
-	}
-	b.attack("");
-	b.beRepaired(0);
-	c.beRepaired(10);
-	return (0);
+	test_claptrap_features(a);
+	test_claptrap_features(b);
+	test_claptrap_features(c);
+	test_claptrap_features(d);
+	test_claptrap_features(e);
+}
+
+int main()
+{
+
+	test_claptrap();
 }
