@@ -6,7 +6,7 @@
 /*   By: ybendavi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 04:57:03 by ybendavi          #+#    #+#             */
-/*   Updated: 2022/10/19 04:51:51 by ybendavi         ###   ########.fr       */
+/*   Updated: 2022/10/19 23:50:07 by ybendavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ ScavTrap::ScavTrap(const  ScavTrap& copy): ClapTrap(copy.getName())
 	*this = copy;
 	std::cout << "ScavTrap "
 			<< getName()
-			<< " has been created."
+			<< " copied."
 			<< std::endl;
 }
 
@@ -43,8 +43,21 @@ ScavTrap::ScavTrap(std::string name): ClapTrap(name)
 	this->setAttackDamage(20);
 	std::cout << "ScavTrap "
 			<< getName()
-			<< " has been created."
+			<< " has been created with name."
 			<< std::endl;
+}
+
+ScavTrap& ScavTrap::operator=(ScavTrap const &src)
+{
+	std::cout << "ScavTrap equal to Scavtrap"
+			<< std::endl;
+	if (this == &src)
+		return (*this);
+	this->_name = src.getName();
+	this->_hit_points = src.getHitPoints();
+	this->_energy_points = src.getEnergyPoints();
+	this->_attack_damage = src. getAttackDamage();
+	return (*this);
 }
 
 ScavTrap::~ScavTrap(void)

@@ -6,7 +6,7 @@
 /*   By: ybendavi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 01:35:13 by ybendavi          #+#    #+#             */
-/*   Updated: 2022/10/19 04:53:06 by ybendavi         ###   ########.fr       */
+/*   Updated: 2022/10/20 00:09:16 by ybendavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ FragTrap::FragTrap(const  FragTrap& copy): ClapTrap(copy.getName())
 	*this = copy;
 	std::cout << "FragTrap "
 			<< getName()
-			<< " has been created."
+			<< " has been copied."
 			<< std::endl;
 }
 
@@ -42,7 +42,7 @@ FragTrap::FragTrap(std::string name): ClapTrap(name)
 	this->setAttackDamage(30);
 	std::cout << "FragTrap "
 			<< getName()
-			<< " has been created."
+			<< " has been created with a name."
 			<< std::endl;
 
 }
@@ -53,6 +53,19 @@ FragTrap::~FragTrap(void)
 			<< getName()
 			<< " disapeared like a FragTrap."
 			<< std::endl;
+}
+
+FragTrap& FragTrap::operator=(FragTrap const &src)
+{
+	std::cout << "FragTrap equal to Scavtrap"
+			<< std::endl;
+	if (this == &src)
+		return (*this);
+	this->_name = src.getName();
+	this->_hit_points = src.getHitPoints();
+	this->_energy_points = src.getEnergyPoints();
+	this->_attack_damage = src. getAttackDamage();
+	return (*this);
 }
 
 void	FragTrap::highFivesGuys(void)

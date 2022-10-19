@@ -6,7 +6,7 @@
 /*   By: ybendavi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 02:02:41 by ybendavi          #+#    #+#             */
-/*   Updated: 2022/10/19 05:26:16 by ybendavi         ###   ########.fr       */
+/*   Updated: 2022/10/20 00:45:54 by ybendavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 	*this = copy;
 	std::cout << "ClapTrap "
 			<< getName()
-			<< " created."
+			<< " copied."
 			<< std::endl;
 }
 
@@ -34,7 +34,7 @@
 {
 	std::cout << "ClapTrap "
 			<< getName()
-			<< " created."
+			<< " created whith name."
 			<< std::endl;
 }
 
@@ -89,8 +89,10 @@ int	ClapTrap::getAttackDamage(void) const
 void	ClapTrap::takeDamage(unsigned int amount)
 {
 	if (amount > 150)
+	{
 		std::cout << "ClapTrap cannot take more than 150 of damage."
 				<< std::endl;
+	}
 	else if (getHitPoints() <= 0)
 	{
 		std::cout << "ClapTrap "
@@ -126,11 +128,15 @@ void	ClapTrap::takeDamage(unsigned int amount)
 void	ClapTrap::beRepaired(unsigned int amount)
 {
 	if (amount > 150)
+	{
 		std::cout << "ClapTrap cannot be repaired more than 150."
 				<< std::endl;
-	else if (getEnergyPoints() > 300)
+	}
+	else if (getHitPoints() > 300)
+	{
 		std::cout << "ClapTrap cannot have more than 300 hp."
 				<< std::endl;
+	}
 	else if (getEnergyPoints() > 0 && getHitPoints() > 0)
 	{
 		setEnergyPoints(getEnergyPoints() - 1);
@@ -202,6 +208,7 @@ void	ClapTrap::attack(const std::string& target)
 
 ClapTrap& ClapTrap::operator=(ClapTrap const &src)
 {
+	std::cout << "ClapTrap equal to ClapTrap." << std::endl;
 	if (this == &src)
 		return (*this);
 	this->_name = src.getName();

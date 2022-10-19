@@ -8,6 +8,8 @@ void	test_claptrap_features(ClapTrap & clap)
 	clap.takeDamage(5);
 	std::cout << std::endl;
 	clap.beRepaired(10);
+	clap.beRepaired(2147483647);
+	clap.takeDamage(2147483647);
 	std::cout << std::endl;
 	while (clap.getEnergyPoints() > 0)
 	{
@@ -35,12 +37,13 @@ void	test_claptrap(void)
 	ClapTrap	c("Banana eater");
 	ClapTrap	d(c);
 	ClapTrap	e("");
+	ClapTrap	f = e;
 
-	test_claptrap_features(a);
+	//test_claptrap_features(a);
 	test_claptrap_features(b);
-	test_claptrap_features(c);
-	test_claptrap_features(d);
-	test_claptrap_features(e);
+	//test_claptrap_features(c);
+	//test_claptrap_features(d);
+	//test_claptrap_features(e);
 }
 
 int main()
