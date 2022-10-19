@@ -88,7 +88,10 @@ int	ClapTrap::getAttackDamage(void) const
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
-	if (getHitPoints() <= 0)
+	if (amount > 150)
+		std::cout << "ClapTrap cannot take more than 150 of damage."
+				<< std::endl;
+	else if (getHitPoints() <= 0)
 	{
 		std::cout << "ClapTrap "
 			<< getName()
@@ -122,7 +125,13 @@ void	ClapTrap::takeDamage(unsigned int amount)
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
-	if (getEnergyPoints() > 0 && getHitPoints() > 0)
+	if (amount > 150)
+		std::cout << "ClapTrap cannot be repaired more than 150."
+				<< std::endl;
+	else if (getEnergyPoints() > 300)
+		std::cout << "ClapTrap cannot have more than 300 hp."
+				<< std::endl;
+	else if (getEnergyPoints() > 0 && getHitPoints() > 0)
 	{
 		setEnergyPoints(getEnergyPoints() - 1);
 		std::cout << "ClapTrap "
