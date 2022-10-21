@@ -6,14 +6,14 @@
 /*   By: ybendavi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 05:05:52 by ybendavi          #+#    #+#             */
-/*   Updated: 2022/10/21 05:07:25 by ybendavi         ###   ########.fr       */
+/*   Updated: 2022/10/21 07:36:22 by ybendavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include <string>
 
-		Bureaucrat::Bureaucrat(void): _name("John Doe")
+		Bureaucrat::Bureaucrat(void): _name("John Doe"), _grade(150)
 		{
 			std::cout << "Bureaucrat "
 					<< getName()
@@ -46,13 +46,22 @@
 					<< std::endl;
 		}
 
+std::string	getName(void)
+		{
+			return (this->_name);
+		}
+
+int		getGrade(void)
+		{
+			return (this->_grade);
+		}
 Bureaucrat&	Bureaucrat::operator=(Bureaucrat const &src)
-{
-	std::cout << "Bureaucrat equal to Bureaucrat." << std::endl;
-	if (this == &src)
-		return (*this);
-	return (*this);
-}
+		{
+			std::cout << "Bureaucrat equal to Bureaucrat." << std::endl;
+			if (this == &src)
+				return (*this);
+			return (*this);
+		}
 
 std::ostream  & operator<<(std::ostream & o, Bureaucrat const & i)
 {
