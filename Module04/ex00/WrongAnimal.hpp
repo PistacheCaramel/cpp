@@ -6,12 +6,12 @@
 /*   By: ybendavi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 20:29:34 by ybendavi          #+#    #+#             */
-/*   Updated: 2022/10/20 20:29:35 by ybendavi         ###   ########.fr       */
+/*   Updated: 2022/10/21 04:33:43 by ybendavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WROMGANIMAL_HPP
-# define WROMGANIMAL_HPP
+#ifndef WRONGANIMAL_HPP
+# define WRONGANIMAL_HPP
 
 #include <string>
 
