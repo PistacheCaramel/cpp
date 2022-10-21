@@ -1,78 +1,72 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ybendavi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/20 20:28:46 by ybendavi          #+#    #+#             */
-/*   Updated: 2022/10/20 20:28:49 by ybendavi         ###   ########.fr       */
+/*   Created: 2022/10/20 21:03:47 by ybendavi          #+#    #+#             */
+/*   Updated: 2022/10/21 02:37:34 by ybendavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "Cat.hpp"
 #include <string>
 #include <iostream>
-		Animal::Animal(void): type("Unknown")
+
+		Cat::Cat(void): Animal("Cat"), _brain(new Brain)
 		{
-			std::cout << "Animal "
+			std::cout << "Cat "
 					<< getType()
 					<< " created."
 					<< std::endl;
 		}
 
-		Animal::Animal(const  Animal& copy)
+		Cat::Cat(const  Cat& copy): Animal(copy.getType())
 		{
 			*this = copy;
-			std::cout << "Animal "
+			std::cout << "Cat "
 					<< getType()
 					<< " copied."
 					<< std::endl;
 		}
 
-		Animal::Animal(std::string type): type(type)
+		Cat::~Cat(void)
 		{
-			std::cout << "Animal "
-					<< getType()
-					<< " created whith type."
-					<< std::endl;
-		}
-
-		Animal::~Animal(void)
-		{
-			std::cout << "Animal "
+			delete this->_brain;
+			std::cout << "Cat "
 					<< getType()
 					<< " destroyed."
 					<< std::endl;
 		}
 
-std::string	Animal::getType(void) const
-		{
-			return (this->type);
-		}
+std::string	Cat::getIdeas(int index) const
+{
+		return (this->_brain->getIdeas(index));
+}
 
-void		Animal::setType(const std::string type)
+void		Cat::makeSound(void) const
 		{
-			this->type = type;
-		}
-
-void		Animal::makeSound(void) const
-		{
-			std::cout << "Animal sound."
+			std::cout << "Cat sound."
 					<< std::endl;
 		}
 
-Animal&		Animal::operator=(Animal const &src)
+Cat&		Cat::operator=(Cat const &src)
 		{
-			std::cout << "Animal equal to Animal." << std::endl;
+			int	i;
+
+			i = 0;
+			std::cout << "Cat equal to Cat." << std::endl;
 			if (this == &src)
 				return (*this);
+			delete this->_brain;
+			this->_brain = new Brain;
+			while (i < 100)
+			{
+				this->_brain->setIdeas(i, src._brain->getIdeas(i));
+				i++;
+			}
 			setType(src.getType());
 			return (*this);
-		}
 
-std::ostream  & operator<<(std::ostream & o, Animal const & i)
-{
-	o << i.getType();
-	return (o);
-}
+		}

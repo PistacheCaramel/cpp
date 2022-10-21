@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ybendavi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/20 20:29:09 by ybendavi          #+#    #+#             */
+/*   Updated: 2022/10/21 02:33:43 by ybendavi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Dog.hpp"
 #include <string>
 #include <iostream>
 
-		Dog::Dog(void): Animal("Unknown")
+		Dog::Dog(void): Animal("Dog")
 		{
 			std::cout << "Dog "
 					<< getType()
@@ -10,20 +22,12 @@
 					<< std::endl;
 		}
 
-		Dog::Dog(const  Dog& copy)
+		Dog::Dog(const  Dog& copy): Animal(copy.type)
 		{
 			*this = copy;
 			std::cout << "Dog "
 					<< getType()
 					<< " copied."
-					<< std::endl;
-		}
-
-		Dog::Dog(std::string type): Animal(type)
-		{
-			std::cout << "Dog "
-					<< getType()
-					<< " created whith type."
 					<< std::endl;
 		}
 

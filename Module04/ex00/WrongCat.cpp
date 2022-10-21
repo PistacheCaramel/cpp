@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ybendavi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/20 20:27:50 by ybendavi          #+#    #+#             */
+/*   Updated: 2022/10/21 03:49:43 by ybendavi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "WrongCat.hpp"
 #include <string>
 #include <iostream>
 
-		WrongCat::WrongCat(void): WrongAnimal("Unknown")
+		WrongCat::WrongCat(void): WrongAnimal("Cat")
 		{
 			std::cout << "WrongCat "
 					<< getType()
@@ -10,20 +22,12 @@
 					<< std::endl;
 		}
 
-		WrongCat::WrongCat(const  WrongCat& copy)
+		WrongCat::WrongCat(const  WrongCat& copy) : WrongAnimal(copy.getType())
 		{
 			*this = copy;
 			std::cout << "WrongCat "
 					<< getType()
 					<< " copied."
-					<< std::endl;
-		}
-
-		WrongCat::WrongCat(std::string type): WrongAnimal(type)
-		{
-			std::cout << "WrongCat "
-					<< getType()
-					<< " created whith type."
 					<< std::endl;
 		}
 

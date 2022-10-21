@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ybendavi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/20 20:28:53 by ybendavi          #+#    #+#             */
-/*   Updated: 2022/10/20 20:28:56 by ybendavi         ###   ########.fr       */
+/*   Created: 2022/10/20 21:31:46 by ybendavi          #+#    #+#             */
+/*   Updated: 2022/10/20 21:31:47 by ybendavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class	Animal
 
 		void			setType(const std::string type);
 		std::string		getType(void) const;
-		virtual void		makeSound(void) const;
+		virtual void		makeSound(void) const = 0;
 };
 
 std::ostream &	operator<<(std::ostream & o, Animal const & i);

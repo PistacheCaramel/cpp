@@ -1,78 +1,70 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ybendavi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/20 20:28:46 by ybendavi          #+#    #+#             */
-/*   Updated: 2022/10/20 20:28:49 by ybendavi         ###   ########.fr       */
+/*   Created: 2022/10/20 21:03:55 by ybendavi          #+#    #+#             */
+/*   Updated: 2022/10/21 02:37:12 by ybendavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "Dog.hpp"
 #include <string>
 #include <iostream>
-		Animal::Animal(void): type("Unknown")
+
+		Dog::Dog(void): Animal("Dog"), _brain(new Brain)
 		{
-			std::cout << "Animal "
+			std::cout << "Dog "
 					<< getType()
 					<< " created."
 					<< std::endl;
 		}
 
-		Animal::Animal(const  Animal& copy)
+		Dog::Dog(const  Dog& copy): Animal(copy.getType())
 		{
 			*this = copy;
-			std::cout << "Animal "
+			std::cout << "Dog "
 					<< getType()
 					<< " copied."
 					<< std::endl;
 		}
 
-		Animal::Animal(std::string type): type(type)
+		Dog::~Dog(void)
 		{
-			std::cout << "Animal "
-					<< getType()
-					<< " created whith type."
-					<< std::endl;
-		}
-
-		Animal::~Animal(void)
-		{
-			std::cout << "Animal "
+			delete this->_brain;
+			std::cout << "Dog "
 					<< getType()
 					<< " destroyed."
 					<< std::endl;
 		}
 
-std::string	Animal::getType(void) const
+std::string	Dog::getIdeas(int index) const
 		{
-			return (this->type);
+			return (this->_brain->getIdeas(index));
 		}
-
-void		Animal::setType(const std::string type)
+void		Dog::makeSound(void) const
 		{
-			this->type = type;
-		}
-
-void		Animal::makeSound(void) const
-		{
-			std::cout << "Animal sound."
+			std::cout << "Dog sound."
 					<< std::endl;
 		}
 
-Animal&		Animal::operator=(Animal const &src)
+Dog&		Dog::operator=(Dog const &src)
 		{
-			std::cout << "Animal equal to Animal." << std::endl;
+			int	i;
+
+			i = 0;
+			std::cout << "Dog equal to Dog." << std::endl;
 			if (this == &src)
 				return (*this);
+			delete this->_brain;
+			this->_brain = new Brain;
+			while (i < 100)
+			{
+				this->_brain->setIdeas(i, src._brain->getIdeas(i));
+				i++;
+			}
 			setType(src.getType());
 			return (*this);
 		}
-
-std::ostream  & operator<<(std::ostream & o, Animal const & i)
-{
-	o << i.getType();
-	return (o);
-}
