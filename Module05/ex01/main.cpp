@@ -4,7 +4,81 @@
 #include <iostream>
 void	ft_sign(void)
 {
-	Form	a("A40", 40, 2);
+	std::cout << "Test sign:" << std::endl;
+	Form		a("A40", 40, 2);
+	std::cout << std::endl;
+	Bureaucrat	b("Martin", 40);
+	std::cout << std::endl;
+       	Bureaucrat	c("Loic" , 39);
+	std::cout << std::endl;
+	Bureaucrat	d("Alain", 41);	
+	std::cout << std::endl;
+
+	std::cout << "Test function signForm:" << std::endl;
+	std::cout << "Test Bureaucrat 41 on a Form 40:" << std::endl;
+	d.signForm(a);
+	std::cout << a << std::endl << std::endl;
+	std::cout << "Test Bureaucrat 39 on a Form 40:" << std::endl;
+	c.signForm(a);
+	std::cout << a << std::endl << std::endl;
+	std::cout << "Test Bureaucrat 40 on a Form 40:" << std::endl;
+	b.signForm(a);	
+	std::cout << a << std::endl << std::endl;
+	std::cout << "Test function beSigned:" << std::endl;
+	Form	e("A39", 39, 9);
+	std::cout << "Test Form 39 with a Bureaucrat 40" << std::endl;
+	try
+	{
+		e.beSigned(b);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << e << std::endl << std::endl;
+	std::cout << "Test Form 39 with a Bureaucrat 41" << std::endl;
+	try
+	{
+		e.beSigned(d);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << e << std::endl << std::endl;
+	std::cout << "Test Form 39 with a Bureaucrat 39" << std::endl;
+	try
+	{
+		e.beSigned(c);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << e << std::endl << std::endl;
+	std::cout << "Test with inc and dec:" << std::endl;
+	Form	f("A38", 38, 6);
+	std::cout << "Inc:" << std::endl;
+	std::cout << c << std::endl;
+	c.inc();
+	std::cout << c << std::endl;
+	try
+	{
+		f.beSigned(c);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << f << std::endl << std::endl; 
+	Form	g("A40", 40, 7);
+	std::cout << "Dec:" << std::endl;
+	std::cout << b << std::endl;
+	b.dec();
+	std::cout << b << std::endl;
+	b.signForm(g);
+}
+	
 void	ft_operator(void)
 {
 	Form a;
