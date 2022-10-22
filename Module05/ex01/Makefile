@@ -6,13 +6,13 @@
 #    By: ybendavi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 02:02:53 by ybendavi          #+#    #+#              #
-#    Updated: 2022/10/21 04:55:46 by ybendavi         ###   ########.fr        #
+#    Updated: 2022/10/22 11:18:52 by ybendavi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= animalz
+NAME	= bureau
 
-SRCS	= main.cpp Bureaucrat.cpp
+SRCS	= main.cpp Bureaucrat.cpp Form.cpp
 
 CC	= c++
 
