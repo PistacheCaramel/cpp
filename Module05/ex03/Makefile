@@ -6,13 +6,13 @@
 #    By: ybendavi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 02:02:53 by ybendavi          #+#    #+#              #
-#    Updated: 2022/10/22 19:44:28 by ybendavi         ###   ########.fr        #
+#    Updated: 2022/10/22 20:45:19 by ybendavi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= bureau
 
-SRCS	= main.cpp Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
+SRCS	= main.cpp Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp Intern.cpp
 
 CC	= c++
 

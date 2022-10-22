@@ -6,7 +6,7 @@
 /*   By: ybendavi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 12:15:03 by ybendavi          #+#    #+#             */
-/*   Updated: 2022/10/22 19:53:20 by ybendavi         ###   ########.fr       */
+/*   Updated: 2022/10/22 20:47:33 by ybendavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class	Form
 						Form(void);
 						Form(const  Form&);
 						Form(const std::string name, const int to_sign, const int to_execute);
-						~Form(void);
+		virtual				~Form(void);
 	
 		Form&				operator=( Form const &src);
 
