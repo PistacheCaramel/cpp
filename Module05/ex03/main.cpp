@@ -9,6 +9,7 @@ void	testunvalid(void)
 	Intern	WhatsHisNameAgain;
 	bool	alloc = false;
 	
+	std::cout << "UNVALID:" << std::endl;
 	try
 	{
 		unvalid = WhatsHisNameAgain.makeForm("unvalid name",
@@ -35,9 +36,6 @@ void	testunvalid(void)
 	if (alloc)
 		delete unvalid;
 }
-	/* Of course, if return is deleted l.34, it will segfault */
-	/* if there's no trycatch, you can slide return right     */
-	/* after if (!unvalid)     								  */
 
 void	testppf(void)
 {

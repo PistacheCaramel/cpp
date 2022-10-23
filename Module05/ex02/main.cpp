@@ -12,10 +12,13 @@
 void	test2(void)
 {
 	Bureaucrat	a = Bureaucrat();
+	std::cout << std::endl;
 	Bureaucrat	b("Jean", 42);
+	std::cout << std::endl;
 	Bureaucrat	c("Jaques", 1);
+	std::cout << std::endl;
 
-	RobotomyRequestForm	aa;
+	ShrubberyCreationForm	aa;
 	
 	std::cout << aa << std::endl;
 	
@@ -50,10 +53,14 @@ void	test2(void)
 void	test1(void)
 {
 	Bureaucrat	a = Bureaucrat();
+	std::cout << std::endl;
 	Bureaucrat	b("Jean", 42);
+	std::cout << std::endl;
 	Bureaucrat	c("Jaques", 1);
+	std::cout << std::endl;
 
-	RobotomyRequestForm	aa("Eden");
+	ShrubberyCreationForm	aa("Eden");
+	std::cout << std::endl;
 	
 	std::cout << aa << std::endl;
 	
@@ -136,8 +143,9 @@ int	main(void)
 	{
 
 		Bureaucrat a("Bureacrat", 142);
-		RobotomyRequestForm casic("cible");
-
+		std::cout << std::endl;
+		ShrubberyCreationForm casic("cible");
+		std::cout << std::endl;
 		try
 		{
 			casic.execute(a);

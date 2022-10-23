@@ -41,7 +41,7 @@ Form*		Intern::makeForm(std::string name, std::string target)
 			int		i;
 
 			i  = 0;
-			while (name.compare(tab[i]) && i < 3)
+			while (i < 3 && name.compare(tab[i]))
 				i++;
 			switch (i)
 			{
@@ -55,7 +55,12 @@ Form*		Intern::makeForm(std::string name, std::string target)
 					std::cout << "Intern creates " << name << std::endl;
 					return (new RobotomyRequestForm(target));
 				default:
-					std::cout << "Form " << name << " doesn't exist." << std::endl;
-					return (NULL);
+					std::cout << name << " ";
+					throw Formdoesntexist();
 			}
-}
+		}
+
+const char*	Intern::Formdoesntexist::what() const throw()
+		{
+			return ("Form doesn't exist.");
+		}
