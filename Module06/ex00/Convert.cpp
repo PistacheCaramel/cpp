@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Convert.cpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ybendavi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/24 12:52:02 by ybendavi          #+#    #+#             */
+/*   Updated: 2022/10/24 12:53:37 by ybendavi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Convert.hpp"
 #include <string>
 #include <iostream>
@@ -5,6 +17,7 @@
 #include <climits>
 #include <cstdlib>
 #include <cfloat>
+#include <cerrno>
 
 		Convert::Convert(void): _input("")
 		{
@@ -53,7 +66,7 @@ char		Convert::getChar(void) const
 			return (this->_c);
 		}
 		
-bool		Convert::isChar(void)
+bool		Convert::isChar(void) const
 		{
 			if (getInput().size() > 1)
 				return (false);
@@ -67,7 +80,7 @@ bool		Convert::isChar(void)
 			return (true);
 		}
 
-bool		Convert::isInt(void)
+bool		Convert::isInt(void) const
 		{
 			size_t	i;
 			
@@ -81,7 +94,7 @@ bool		Convert::isInt(void)
 			return (true);
 		}
 
-bool		Convert::isFloat(void)
+bool		Convert::isFloat(void) const
 		{
 			size_t	i;
 
@@ -105,7 +118,7 @@ bool		Convert::isFloat(void)
 			return (true);
 		}
 
-bool		Convert::isDouble(void)
+bool		Convert::isDouble(void) const
 		{
 			size_t	i;
 
@@ -127,32 +140,67 @@ bool		Convert::isDouble(void)
 			return (true);
 		}
 
-void		Convert::convert_float(void)
+void		Convert::convertDouble(void)
 {
-		float	i;
+		double	i;
 
 		strtof(getInput().c_str(), NULL);
-		if (strtof(getInput().c_str(), NULL) > FLT_MAX || strtof(getInput().c_str(), NULL) < -FLT_MAX)
+		if (strtod(getInput().c_str(), NULL) > DBL_MAX
+			|| strtof(getInput().c_str(), NULL) < -DBL_MAX
+			|| errno)
 		{
 			this->_output = false;
 			return ;
 		}
-		i = strtof(getInput().c_str(), NULL);
-		this->_integer = static_cast<int>(i);
+		i = strtod(getInput().c_str(), NULL);
+		this->_dble = i;
 		this->_floating = static_cast<float>(i);
-		this->_dble = static_cast<double>(i);
-		if (i > 31 && i < 127)
+		this->_integer = static_cast<int>(i);
+		if (i > 31 && i < 127 && i - static_cast<int>(i) == 0)
 			this->_c = static_cast<char>(i);
 		else
 			this->_c = -1;
 }
 
-void		Convert::convert_int(void)
+void		Convert::convertFloat(void)
+{
+		float	i;
+
+		strtof(getInput().c_str(), NULL);
+		if (strtof(getInput().c_str(), NULL) > FLT_MAX
+			|| strtof(getInput().c_str(), NULL) < -FLT_MAX
+			|| errno)
+		{
+			this->_output = false;
+			return ;
+		}
+		i = strtof(getInput().c_str(), NULL);
+		this->_floating = (i);
+		this->_integer = static_cast<int>(i);
+		this->_dble = static_cast<double>(i);
+		if (i > 31 && i < 127 && i - static_cast<int>(i) == 0)
+			this->_c = static_cast<char>(i);
+		else
+			this->_c = -1;
+}
+
+void		Convert::convertChar(void)
+{
+		char	i;
+
+		i = getInput()[0];
+		this->_c = i;
+		this->_integer = static_cast<int>(i);
+		this->_floating = static_cast<float>(i);
+		this->_dble = static_cast<double>(i);
+}
+
+void		Convert::convertInt(void)
 {
 		long int	i;
 
 		i = strtol(getInput().c_str(), NULL, 10);
-		if (i > INT_MAX || i < INT_MIN)
+		if (i > INT_MAX || i < INT_MIN || errno)
 		{
 			this->_output = false;
 			return ;
@@ -173,9 +221,8 @@ bool		Convert::getOutput(void) const
 
 Convert&	Convert::operator=(Convert const &src)
 		{
+			(void)src;
 			std::cout << "Convert equal to Convert." << std::endl;
-			if (this == &src)
-				return (*this);
 			return (*this);
 		}
 
@@ -188,9 +235,12 @@ std::ostream  & operator<<(std::ostream & o, Convert const & i)
 				if (i.getChar() == -1)
 					o << "char: Non displayable" << std::endl;
 				else
-					o << "char: " << i.getChar() << std::endl;
-				o << "int: " << i.getInt() << std::endl
-					<< "float: " << i.getFloat() << "f" << std::endl
+					o << "char: '" << i.getChar() << "'" << std::endl;
+				o << "int: " << i.getInt() << std::endl;
+				o << std::fixed;
+				if (i.isInt() == true || i.isChar() == true)
+					o.precision(1);
+				std::cout << "float: " << i.getFloat() << "f" << std::endl
 					<< "double: " << i.getDouble() << std::endl;
 			}
 			return (o);

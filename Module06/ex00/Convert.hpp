@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Convert.hpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ybendavi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/24 12:52:38 by ybendavi          #+#    #+#             */
+/*   Updated: 2022/10/24 12:52:42 by ybendavi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef CONVERT_HPP
 # define CONVERT_HPP
 
@@ -27,14 +39,14 @@ class	Convert
 		double			getDouble(void) const;
 		char			getChar(void) const;
 
-		bool			isInt(void);
-		bool			isChar(void);
-		bool			isFloat(void);
-		bool			isDouble(void);
-		void			convert_int(void);
-		void			convert_float(void);
-		//void			convert_double(void);
-		//void			convert_char(void);
+		bool			isInt(void) const;
+		bool			isChar(void) const;
+		bool			isFloat(void) const;
+		bool			isDouble(void) const;
+		void			convertInt(void);
+		void			convertFloat(void);
+		void			convertDouble(void);
+		void			convertChar(void);
 
 };
 

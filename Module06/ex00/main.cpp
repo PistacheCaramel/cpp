@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ybendavi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/24 12:52:45 by ybendavi          #+#    #+#             */
+/*   Updated: 2022/10/24 12:52:55 by ybendavi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <string>
 #include <iostream>
 #include <cstdlib>
@@ -20,21 +32,14 @@ int	main(int ac, char **av)
 	}
 	convert.setInput(av[1]);
 	if (convert.isChar() == true)
-		std::cout << "is char" << std::endl;
+		convert.convertChar();
 	if (convert.isInt() == true)
-	{
-		convert.convert_int();
-		std::cout << convert << std::endl;
-	}
+		convert.convertInt();
 	if (convert.isFloat() == true)
-	{
-		convert.convert_float();
-		std::cout << convert << std::endl;
-	}
-		std::cout << "is Float" << std::endl;
+		convert.convertFloat();
 	if (convert.isDouble() == true)
-		std::cout << "is Double" << std::endl;
-	//to_convert = av[1];
+		convert.convertDouble();
+	std::cout << convert;
 
 	return (0);
 }
