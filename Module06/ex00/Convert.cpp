@@ -6,7 +6,7 @@
 /*   By: ybendavi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 12:52:02 by ybendavi          #+#    #+#             */
-/*   Updated: 2022/10/24 12:53:37 by ybendavi         ###   ########.fr       */
+/*   Updated: 2022/10/24 14:49:24 by ybendavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 #include <cfloat>
 #include <cerrno>
 
-		Convert::Convert(void): _input("")
+		Convert::Convert(void): _input(""), _output(true)
 		{
 		}
 
@@ -28,7 +28,7 @@
 			*this = copy;
 		}
 
-		Convert::Convert(std::string input): _input(input)
+		Convert::Convert(std::string input): _input(input), _output(true)
 		{
 		}
 
@@ -236,12 +236,30 @@ std::ostream  & operator<<(std::ostream & o, Convert const & i)
 					o << "char: Non displayable" << std::endl;
 				else
 					o << "char: '" << i.getChar() << "'" << std::endl;
-				o << "int: " << i.getInt() << std::endl;
+				if (i.getFloat() > INT_MAX || i.getDouble() > INT_MAX
+					|| i.getFloat() < INT_MIN || i.getDouble() < INT_MIN)
+				{
+					o << "int: Non displayable" << std::endl;
+				}
+				else
+				{
+					o << "int: " << i.getInt() << std::endl;
+				}
 				o << std::fixed;
 				if (i.isInt() == true || i.isChar() == true)
+				{
 					o.precision(1);
-				std::cout << "float: " << i.getFloat() << "f" << std::endl
-					<< "double: " << i.getDouble() << std::endl;
+				}
+				if (i.getDouble() > FLT_MAX || i.getDouble() < FLT_MIN
+					|| i.getDouble() < -FLT_MAX)
+				{
+					o << "float: Non displayable" << std::endl;
+				}
+				else
+				{
+					o << "float: " << i.getFloat() << "f" << std::endl;
+				}
+					o << "double: " << i.getDouble() << std::endl;
 			}
 			return (o);
 		}
