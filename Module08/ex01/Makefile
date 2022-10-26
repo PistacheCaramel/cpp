@@ -6,11 +6,11 @@
 #    By: ybendavi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 02:02:53 by ybendavi          #+#    #+#              #
-#    Updated: 2022/10/26 12:44:51 by ybendavi         ###   ########.fr        #
+#    Updated: 2022/10/26 17:23:22 by ybendavi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= ex1
+NAME	= ex01
 
 SRCS	= main.cpp Span.cpp
 
@@ -18,7 +18,7 @@ CC	= c++
 
 OBJS	= $(SRCS:.cpp=.o)
 
-CFLAGS	= -Wall -Wextra -Werror -std=c++98 -g3
+CFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 all	:	$(NAME)
 

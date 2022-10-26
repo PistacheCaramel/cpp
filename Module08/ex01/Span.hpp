@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Span.hpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ybendavi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/26 17:26:56 by ybendavi          #+#    #+#             */
+/*   Updated: 2022/10/26 17:26:57 by ybendavi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SPAN_HPP
 # define SPAN_HPP
 
@@ -9,6 +21,8 @@ class	Span
 	private:
 			unsigned int		_n;
 			std::vector<int>	_storage;
+		
+			void			addMoreNumbers(std::vector<int>::iterator it, std::vector<int>::iterator ite);
 	public:
 					Span(void);
 					Span(const  Span&);
@@ -22,7 +36,6 @@ class	Span
 		int			shortestSpan(void) const;
 		int			longestSpan(void) const;
 
-		void			addMoreNumbers(std::vector<int>::iterator it, std::vector<int>::iterator ite);
 		void			setRangeToAdd(unsigned int);
 		class			CannotAddMoreException : public std::exception
 					{
