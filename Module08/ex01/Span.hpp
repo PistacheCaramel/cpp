@@ -7,26 +7,35 @@
 class	Span
 {
 	private:
-			int			_n;
+			unsigned int		_n;
 			std::vector<int>	_storage;
 	public:
 					Span(void);
 					Span(const  Span&);
-					Span(int N);
+					Span(unsigned int N);
 					~Span(void);
 					
 		Span&		operator=( Span const &src);
 
-		void		addNumber(const int to_add);
-		int		shortestSpan(void) const;
-		int		longestSpan(void) const;
+		std::vector<int> &	getStorage(void);
+		void			addNumber(const int to_add);
+		int			shortestSpan(void) const;
+		int			longestSpan(void) const;
 
-		class		CannotAddMoreException : public std::exception
-				{
-					public:
-						virtual const char* what() const throw();
-				}
+		void			addMoreNumbers(std::vector<int>::iterator it, std::vector<int>::iterator ite);
+		void			setRangeToAdd(unsigned int);
+		class			CannotAddMoreException : public std::exception
+					{
+						public:
+							virtual const char* what() const throw();
+					};
+
+		class			NotEnoughElementsException : public std::exception
+					{
+						public:
+							virtual const char* what() const throw();
+					};
+
 };
 
-std::ostream &	operator<<(std::ostream & o, Span const & i);
 #endif

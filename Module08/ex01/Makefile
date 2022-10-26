@@ -6,13 +6,13 @@
 #    By: ybendavi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 02:02:53 by ybendavi          #+#    #+#              #
-#    Updated: 2022/10/25 21:21:02 by ybendavi         ###   ########.fr        #
+#    Updated: 2022/10/26 12:44:51 by ybendavi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= ex0
+NAME	= ex1
 
-SRCS	= main.cpp
+SRCS	= main.cpp Span.cpp
 
 CC	= c++
 
