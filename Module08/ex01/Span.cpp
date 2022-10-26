@@ -6,7 +6,7 @@
 /*   By: ybendavi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 17:26:51 by ybendavi          #+#    #+#             */
-/*   Updated: 2022/10/26 17:26:53 by ybendavi         ###   ########.fr       */
+/*   Updated: 2022/10/26 18:11:34 by ybendavi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int			Span::shortestSpan(void) const
 					tmp = this->_storage;
 					std::sort(tmp.begin(), tmp.end());
 					std::adjacent_difference(tmp.begin(), tmp.end(), tmp2.begin());
-					return (*std::min_element(tmp2.begin(), tmp2.end()));
+					return (*std::min_element(tmp2.begin() + 1, tmp2.end()));
 				}
 			}
 
